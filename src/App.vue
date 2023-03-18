@@ -31,8 +31,9 @@ function refresh() {
 }
 
 function copy(code: string) {
-  navigator.clipboard.writeText(code)
-  console.log(`Clipboard updated to ${code}`)
+  const joinCode = `/加入 ${code}`
+  navigator.clipboard.writeText(joinCode)
+  console.log(`Clipboard updated to '${joinCode}'`)
 }
 </script>
 
