@@ -1,0 +1,17 @@
+@import './base.css';
+
+#app {
+  font-weight: normal;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: url(https://images.contentstack.io/v3/assets/blte410e3b15535c144/blt5857a6745474a091/63ff744e633ef836f6c2a0cf/rr-hero.jpg), rgb(41, 20, 34);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
