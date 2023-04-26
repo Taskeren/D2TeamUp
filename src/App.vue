@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { get_destiny2_teams, type TeamInfo } from '@/heyboxapi'
+import { get_destiny2_teams, type TeamInfoV2 } from '@/heyboxapi'
 import { reactive, ref } from 'vue'
 
 const refresh_text = ref("刷新")
 const refresh_disabled = ref(false)
 
-var teams: TeamInfo[] = reactive([])
+var teams: TeamInfoV2[] = reactive([])
 
 function refresh() {
   refresh_text.value = "更新中……"
@@ -42,8 +42,8 @@ function copy(code: string) {
     <div id="control" class="m-2 box-border h-32 w-48 bg-purple-400 flex items-center justify-center">
       <button :disabled="refresh_disabled" @click="refresh" class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-600">{{ refresh_text }}</button>
     </div>
-    <div v-for="team in teams" :key="team.link_id" @click="copy(team.copy_text)" class="m-2 p-2 h-32 w-48 bg-purple-400 bg-opacity-50 flex items-center justify-center drop-shadow rounded-sm cursor-pointer">
-      <div class="absolute top-0 left-0 text-sm">{{ team.copy_text }}</div>
+    <div v-for="team in teams" :key="team.link_id" @click="copy(team.game_id)" class="m-2 p-2 h-32 w-48 bg-purple-400 bg-opacity-50 flex items-center justify-center drop-shadow rounded-sm cursor-pointer">
+      <div class="absolute top-0 left-0 text-sm">{{ team.game_id }}</div>
       <div class="absolute bottom-0 right-0 text-sm">{{ team.create_str }}</div>
       <div class="p-2 font-bold text-justify">{{ team.content_text }}</div>
     </div>

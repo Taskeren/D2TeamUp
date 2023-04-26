@@ -14,7 +14,7 @@ export interface HeyBoxResponse<T> {
 export interface SearchTeamResult {
   game_info: { game_icon: string, game_name: string, appid: string },
   color: string,
-  team_list: TeamInfo[],
+  team_list: TeamInfoV2[],
   setting_list: {
     wait_list: {
       add_timestamp: string,
@@ -46,6 +46,7 @@ export interface SearchTeamResult {
   }[]
 }
 
+// @deprecated
 export interface TeamInfo {
   other_copy_text: string,
   media_list: any[],
@@ -68,6 +69,34 @@ export interface TeamInfo {
   has_chat: number
 }
 
+export interface TeamInfoV2 {
+  game_icon: string,
+  link_id: number,
+  is_master_offline: number,
+  is_full: boolean,
+  modify_at: number,
+  team_type: number,
+  chat_info: any,
+  is_my_link: boolean,
+  media_list: any[],
+  tags: Tag[],
+  create_str: string,
+  has_chat: number,
+  content_text: string,
+  user: User,
+  game_id: string,
+  wait: number,
+  is_expired: boolean,
+  chat_url: string,
+  teams: User[],
+  link_tag: number,
+  is_join: boolean,
+  requires: {
+    need: number,
+    have: number
+  }
+}
+
 export interface User {
   username: string,
   userid: string,
@@ -81,4 +110,9 @@ export interface User {
   level_info: {
     level: number
   }
+}
+
+export interface Tag {
+  icon: string,
+  desc: string
 }
